@@ -13,6 +13,17 @@ public class Square : MonoBehaviour
         targetPosition = GetRandomPoint();
     }
 
+    void Update()
+    {
+         transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveStep * Time.deltaTime);
+ 
+        if((Vector2)transform.position == targetPosition)
+        {
+            targetPosition = GetRandomPoint();
+        }
+    }
+
+
     Vector2 GetRandomPoint()
     {
         Vector2 randomVector = new Vector2();
